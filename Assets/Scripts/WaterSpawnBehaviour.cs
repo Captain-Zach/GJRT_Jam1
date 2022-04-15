@@ -11,6 +11,7 @@ public class WaterSpawnBehaviour : MonoBehaviour
     void Start()
     {
         waterLimitReached = false;
+        transform.position.Set(transform.position.x, transform.position.y, -1);
         foreach (Transform transformChildren in GetComponentsInChildren<Transform>())
         {
             if (transformChildren == transform) continue;
@@ -44,8 +45,32 @@ public class WaterSpawnBehaviour : MonoBehaviour
             //Debug.Log(createdWater.transform.position);
 
             Collider2D[] colliders = Physics2D.OverlapBoxAll(createdWater.transform.position, new Vector2(0.9f, 0.9f), 0f);
+            
             if (colliders.Length > 0)
             {
+                foreach (Collider2D collider in colliders)
+                {
+                    //Edgecases for generation
+
+                    //Ignore player (should be removed soon)
+                    if (collider.name == "Player" && colliders.Length == 1) return;
+
+                    //Don't create new stream in case of Wood blocking first block
+                    if (collider.name.Contains("Wood") && waterArray.Length == 1)
+                    {
+                        startingEntity.GetComponent<WaterSpawnBehaviour>().waterLimitReached = true;
+                        Destroy(createdWater);
+                        return;
+                    }
+
+                    //Village/City/Beaver
+                    if (collider.name.Contains("Hitbox"))
+                    {
+                        collider.GetComponent<HitboxHandler>().OnHitboxContact();
+                        return;
+                    }
+                }
+
                 startingEntity.GetComponent<WaterSpawnBehaviour>().waterLimitReached = true;
                 //Debug.Log("Collided with success");
                 if (Physics2D.OverlapBoxAll(createdWater.transform.position + new Vector3(1, 1, 0), new Vector2(0.9f, 0.9f), 0f).Length == 0)

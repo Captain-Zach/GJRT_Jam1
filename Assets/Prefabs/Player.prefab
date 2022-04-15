@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6976152090099807518}
   - component: {fileID: 6976152090099807515}
   - component: {fileID: 7954228614045852928}
-  - component: {fileID: 5261167671980154373}
   - component: {fileID: 6976152090099807519}
   - component: {fileID: 6976152090099807488}
   - component: {fileID: 6976152090099807516}
@@ -31,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6976152090099807489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,18 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
   WoodPrefab: {fileID: 914343559013169719, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
---- !u!114 &5261167671980154373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6976152090099807489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf9ac4d7797197b4fad399b644683b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  StreamPrefab: {fileID: 4471942337481033456, guid: 32aeb6b58060ecc418b8f86bb06c840f, type: 3}
 --- !u!50 &6976152090099807519
 Rigidbody2D:
   serializedVersion: 4
@@ -264,8 +252,8 @@ MonoBehaviour:
     m_ActionName: Movement/Right[/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6976152090099807515}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 7954228614045852928}
+        m_TargetAssemblyTypeName: WoodCreator, Assembly-CSharp
         m_MethodName: SpawnWood
         m_Mode: 0
         m_Arguments:

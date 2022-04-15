@@ -10,4 +10,9 @@ public class Core : MonoBehaviour
         //Ignore Collision between Normal layer and Water layer
         Physics2D.IgnoreLayerCollision(0, 4);
     }
+
+    private void Update()
+    {
+        
+    }
 }
