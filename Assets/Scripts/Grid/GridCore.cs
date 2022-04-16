@@ -10,7 +10,7 @@ public class GridCore : MonoBehaviour
 
     [SerializeField] int refreshDelay;
 
-    [SerializeField] GameObject PlaceHolder;
+    [SerializeField] GameObject BGTile;
 
     // private float gridSpacing = 1;
     // Toggle these for testing
@@ -43,7 +43,7 @@ public class GridCore : MonoBehaviour
             {
                 // Instantiate
                 // Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing * -1); // Yoooo what was I thinkin'?
-                GameObject Tile = Instantiate(PlaceHolder, this.transform);
+                GameObject Tile = Instantiate(BGTile, this.transform);
                 gridMap[y].Add(Tile);
                 
             }
