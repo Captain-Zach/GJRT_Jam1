@@ -33,9 +33,17 @@ public class WoodCreator : MonoBehaviour
 
                 if (collider.GetComponentInParent<WaterSpawnBehaviour>() != null)
                 {
-                    GameObject waterStreamGenerator = collider.GetComponentInParent<WaterSpawnBehaviour>().gameObject;
-                    Instantiate(StreamPrefab, waterStreamGenerator.transform.position, waterStreamGenerator.transform.rotation);
-                    Destroy(waterStreamGenerator);
+                    WaterSpawnBehaviour[] allWaterStreamGens = Object.FindObjectsOfType<WaterSpawnBehaviour>();
+                    foreach (WaterSpawnBehaviour waterSpawn in allWaterStreamGens)
+                    {
+                        Transform transformCopy = waterSpawn.transform;
+                        Destroy(waterSpawn.gameObject);
+                        if (!waterSpawn.name.Contains("Clone"))
+                        {
+                            GameObject newMainWaterStream = Instantiate(StreamPrefab, transformCopy.position, transformCopy.rotation);
+                            newMainWaterStream.name = "WaterSpawner";
+                        }
+                    }
                 }
             }
         }
