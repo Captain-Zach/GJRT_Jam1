@@ -12,9 +12,9 @@ public class GridCore : MonoBehaviour
 
     [SerializeField] GameObject PlaceHolder;
 
-    private float gridSpacing = 1;
+    // private float gridSpacing = 1;
     // Toggle these for testing
-    // public float gridSpacing = 20;
+    public float gridSpacing = 20;
 
    public List<List<GameObject>> gridMap = new List<List<GameObject>>() {};
 
@@ -38,11 +38,11 @@ public class GridCore : MonoBehaviour
         {
             // This is a bit like building the train tracks as the train is running over it.
             gridMap.Add(new List<GameObject>(){});
-            
+
             for(int x = 0; x < Width; x++)
             {
                 // Instantiate
-                Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing);
+                // Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing * -1); // Yoooo what was I thinkin'?
                 GameObject Tile = Instantiate(PlaceHolder, this.transform);
                 gridMap[y].Add(Tile);
                 
@@ -62,13 +62,14 @@ public class GridCore : MonoBehaviour
 
     void dynaSpacing()
     {
+        // This was for test purposes, but serves as a fine test.
         int xTracker = 0;
         int yTracker = 0;
         foreach(List<GameObject> row in gridMap)
         {
             foreach (GameObject Tile in row)
             {
-                // Tile.transform.position = new Vector2(xTracker * gridSpacing, yTracker * gridSpacing);
+                Tile.transform.position = new Vector2(xTracker * gridSpacing, yTracker * gridSpacing * -1);
                 xTracker++;
                 Debug.Log(xTracker + " " + yTracker);
             }
