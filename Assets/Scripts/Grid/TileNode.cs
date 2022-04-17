@@ -6,7 +6,12 @@ public class TileNode : MonoBehaviour
 {
 
     [SerializeField] List<List<GameObject>> MaskMap;
+    [SerializeField] int xCoordinate = 0;
+    [SerializeField] int yCoordinate = 0;
+    [SerializeField] TileLevelInterpreter.TileTypes Type;
     public float Spacer = 1.0f;
+
+    
 
 
     const int width = 3;
@@ -74,7 +79,6 @@ public class TileNode : MonoBehaviour
 
                 // Finally, we can put all this info together and move our ninth.
                 newNinth.transform.position = coordinates;
-                Debug.Log("This is a problem");
             }
         }
 
@@ -85,5 +89,25 @@ public class TileNode : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public TileNode Init(int xCoord = 0, int yCoord = 0, TileLevelInterpreter.TileTypes targetType = TileLevelInterpreter.TileTypes.None)
+    {
+        // Need 
+        this.xCoordinate = xCoord;
+        this.yCoordinate = yCoord;
+        this.Type = targetType;
+
+        return this;
+    }
+
+    public void refreshNinths()
+    {
+        // on init, swaps, changes, etc, refresh ninths to 
+    }
+
+    void surroundCheck()
+    {
+        // referencing parent GridMap, 
     }
 }

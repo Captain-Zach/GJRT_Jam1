@@ -123,6 +123,7 @@ public class TileLevelInterpreter : MonoBehaviour
 
     public enum TileTypes
     {
+        None = 0,
         BasicBlock = 1,
         OneBlockWood = 2,
         TwoBlockWood = 3,

@@ -55,7 +55,9 @@ public class GridCore : MonoBehaviour
                 // Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing * -1); // Yoooo what was I thinkin'?
                 GameObject Tile = Instantiate(BGTile, this.transform);
                 gridMap[y].Add(Tile);
-                
+
+                Tile.GetComponent<TileNode>().Init(x, y, TileLevelInterpreter.TileTypes.None);
+
             }
         }
 
@@ -88,6 +90,26 @@ public class GridCore : MonoBehaviour
         }
     }
 
-    // Need a function to instantiate a new 
+    // Need a function to instantiate new Tiles
+    void pushTile(int xCoord, int yCoord, TileLevelInterpreter.TileTypes tileType) // need x, y coordinates for where tile pushes and the tiletype
+    {
+        // GameObject newTilePrefab = GetPrefab(tileType);
+    }
 
+    // Function to destroy a Tile
+    void removeTile(int xCoord, int yCoord) // targetted by coordinates
+    {
+        // gridMap[y][x] = 
+    }
+
+
+    // Function to swap a tile
+    void swapTile(int xCoord, int yCoord, TileLevelInterpreter.TileTypes newTileType)
+    {
+        // remove tile
+        // removeTile(xCoord, yCoord);
+
+        // push tile
+        // pushTile(xCoord, yCoord, newTileType);        
+    }
 }
