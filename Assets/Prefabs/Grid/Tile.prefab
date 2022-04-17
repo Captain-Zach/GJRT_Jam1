@@ -95,5 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54a7addd1d084b4aa79cd98ea2cbc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xCoordinate: 0
+  yCoordinate: 0
+  Type: 0
   Spacer: 0.33333334
+  grass: {fileID: 9086843753993150959, guid: 0458152639b045d458608b842ee3dcfb, type: 3}
   PlaceHolder: {fileID: 2445643569753231608, guid: dda9886842affe74b8a8e381949f9f3e, type: 3}
