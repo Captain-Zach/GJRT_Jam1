@@ -15,15 +15,19 @@ public class TileLevelInterpreter : MonoBehaviour
 
     private void Awake()
     {
-        PopulateFromCsv(csvColors);
-        PopulatefromLevelTilemap(levelTileMap);
-        foreach (TileLevelInterpreter.TileTypes count in GetResources()) Debug.Log(count);
+        //foreach (TileLevelInterpreter.TileTypes count in GetResources()) Debug.Log(count);
+    }
+
+    public void SetSprite(Sprite levelSprite)
+    {
+        Debug.Log("Pré: " + levelTileMap.name);
+        levelTileMap = levelSprite;
+        Debug.Log("Pós: " + levelTileMap.name);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
         string message = "";
         for (int y = 0; y < GetGridTiles().Count; y++)
         {
@@ -35,7 +39,12 @@ public class TileLevelInterpreter : MonoBehaviour
             message += "]\n";
         }
         Debug.Log(message);
-        */
+    }
+
+    public void LoadEssentials()
+    {
+        PopulateFromCsv(csvColors);
+        PopulatefromLevelTilemap(levelTileMap);
     }
 
     private void PopulateFromCsv(TextAsset csv)

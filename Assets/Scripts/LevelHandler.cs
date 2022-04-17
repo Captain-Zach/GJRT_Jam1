@@ -13,7 +13,7 @@ public class LevelHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (TileLevelInterpreter.TileTypes count in tileLevelInterpreter.GetResources()) Debug.Log(count);
+        //foreach (TileLevelInterpreter.TileTypes count in tileLevelInterpreter.GetResources()) Debug.Log(count);
         PopulateResourcesFromTiling(tileLevelInterpreter.GetResources());
         TotalResources = WoodResources.Count;
     }
