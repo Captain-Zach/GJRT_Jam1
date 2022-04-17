@@ -13,6 +13,9 @@ public class GridCore : MonoBehaviour
     [SerializeField] int Height;
 
     [SerializeField] int refreshDelay;
+    
+    [SerializeField] GameObject Loader;
+
 
     [SerializeField] GameObject BGTile;
 
@@ -21,7 +24,7 @@ public class GridCore : MonoBehaviour
     public float gridSpacing = 20;
 
 
-   public List<List<GameObject>> gridMap = new List<List<GameObject>>();
+   public List<List<TileNode.NodeTemplate>> gridMap = new List<List<TileNode.NodeTemplate>>();
 
     
    // Instead of listing lists of game objects, why don't we... Create a tile class
@@ -43,18 +46,25 @@ public class GridCore : MonoBehaviour
 
     void Start()
     {
+        TileLevelInterpreter Terp = GetComponentInChildren(typeof(TileLevelInterpreter)) as TileLevelInterpreter;
+
+        // List<List<TileTypes>> = Terp.GetGridTiles();
+        TileNode.HelloTest();
+        
         // Going to loop through
         for(int y = 0; y < Height; y++)
         {
             // This is a bit like building the train tracks as the train is running over it.
-            gridMap.Add(new List<GameObject>());
+            gridMap.Add(new List<TileNode.NodeTemplate>());
 
             for(int x = 0; x < Width; x++)
             {
                 // Instantiate
                 // Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing * -1); // Yoooo what was I thinkin'?
                 GameObject Tile = Instantiate(BGTile, this.transform);
-                gridMap[y].Add(Tile);
+                TileNode.NodeTemplate Node = new TileNode.NodeTemplate(0,false, TileNode.NodeTemplate.TileTypes.None, BGTile);
+                // Node.TilePrefab = BGTile;
+                gridMap[y].Add(Node);
 
                 // Tile.GetComponent<TileNode>().Init(x, y, TileLevelInterpreter.TileTypes.None);
 
@@ -77,11 +87,14 @@ public class GridCore : MonoBehaviour
         // This was for test purposes, but serves as a fine test.
         int xTracker = 0;
         int yTracker = 0;
-        foreach(List<GameObject> row in gridMap)
+        foreach(List<TileNode.NodeTemplate> row in gridMap)
         {
-            foreach (GameObject Tile in row)
+            foreach (TileNode.NodeTemplate Tile in row)
             {
-                Tile.transform.position = new Vector2(xTracker * gridSpacing, yTracker * gridSpacing * -1);
+                Debug.Log("DynaSpacing: x-" + xTracker+" y-"+ yTracker);
+                Debug.Log(Tile.TilePrefab.transform.position);
+                
+                Tile.TilePrefab.transform.position = new Vector3(xTracker * gridSpacing, yTracker * gridSpacing * -1, 0);
                 xTracker++;
                 // Debug.Log(xTracker + " " + yTracker);
             }

@@ -49,8 +49,10 @@ public class TileLevelInterpreter : MonoBehaviour
     {
         List<Color> returnColors = new List<Color>();
         List<TileTypes> returnTiles = new List<TileTypes>();
+
         string text = csv.text;
         string[] dictionary = text.Split('\n');
+        
         foreach (string color_code in dictionary)
         {
             string[] color = color_code.Split(',');
