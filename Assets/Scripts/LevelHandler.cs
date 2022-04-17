@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class LevelHandler : MonoBehaviour
 {
+    [SerializeField] TileLevelInterpreter tileLevelInterpreter;
     public int IndexActiveWood;
     private int TotalResources;
-    [SerializeField] GameObject[] WoodResources;
+    [SerializeField] List<GameObject> WoodResources;
+    //Those MUST be in order from size 1 to size 3!!!!
+    [SerializeField] GameObject[] WoodPrefabTypes;
     // Start is called before the first frame update
     void Start()
     {
-        TotalResources = WoodResources.Length;
+        foreach (TileLevelInterpreter.TileTypes count in tileLevelInterpreter.GetResources()) Debug.Log(count);
+        PopulateResourcesFromTiling(tileLevelInterpreter.GetResources());
+        TotalResources = WoodResources.Count;
     }
 
     public GameObject GetWood()
@@ -43,7 +48,7 @@ public class LevelHandler : MonoBehaviour
     public void GoToNextWood()
     {
         if (TotalResources == 0) return;
-        if (IndexActiveWood == WoodResources.Length - 1)
+        if (IndexActiveWood == WoodResources.Count - 1)
         {
             IndexActiveWood = 0;
         } else
@@ -56,10 +61,24 @@ public class LevelHandler : MonoBehaviour
         }
     }
 
-    public enum WoodSizes
+    private void PopulateResourcesFromTiling(List<TileLevelInterpreter.TileTypes> tileTypes)
     {
-        Wood = 1,
-        WideWood = 2,
-        ExtraWideWood = 3
+        for (int i = 0; i < tileTypes.Count; i++)
+        {
+            switch (tileTypes[i])
+            {
+                case TileLevelInterpreter.TileTypes.OneBlockWood:
+                    WoodResources.Add(WoodPrefabTypes[0]);
+                    break;
+                case TileLevelInterpreter.TileTypes.TwoBlockWood:
+                    WoodResources.Add(WoodPrefabTypes[1]);
+                    break;
+                case TileLevelInterpreter.TileTypes.ThreeBlockWood:
+                    WoodResources.Add(WoodPrefabTypes[2]);
+                    break;
+                default:
+                    throw new System.Exception("Non-wood block in Resources Array.");
+            }
+        }
     }
 }

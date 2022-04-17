@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5918442262791081672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43489692, y: -0.40120313, z: -7590.472}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,5 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766c8d4906f6b6f468c070c782e6e7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileLevelInterpreter: {fileID: -6357120333649211471, guid: 7b3e2b87cee7fb64f923c5a009fb12ea, type: 3}
   IndexActiveWood: 0
   WoodResources: []
+  WoodPrefabTypes:
+  - {fileID: 914343559013169719, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
+  - {fileID: 7205494324982700607, guid: 8bbc86d5e9b05d843ad7fb9bdc7c5c0f, type: 3}
+  - {fileID: 6787365537240755194, guid: 6a7d3835dc3eccc4ea7be5ebadd9418e, type: 3}

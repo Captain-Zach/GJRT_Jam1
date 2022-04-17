@@ -13,12 +13,16 @@ public class TileLevelInterpreter : MonoBehaviour
     List<List<TileTypes>> tilesGrid;
     List<TileTypes> resources;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         PopulateFromCsv(csvColors);
         PopulatefromLevelTilemap(levelTileMap);
+        foreach (TileLevelInterpreter.TileTypes count in GetResources()) Debug.Log(count);
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         /*
         string message = "";
         for (int y = 0; y < GetGridTiles().Count; y++)
@@ -62,7 +66,14 @@ public class TileLevelInterpreter : MonoBehaviour
             List<TileTypes> lineOfTypes = new List<TileTypes>();
             for (int x = 0; x < width; x++)
             {
-                if (x+1 == width) returnResources.Add(GetTileType(tilemap.texture.GetPixel(x, y-1)));
+                if (x+1 == width) 
+                {
+                    Color tempColorResource = tilemap.texture.GetPixel(x, y - 1);
+                    TileTypes tempTileType = GetTileType(new Color(tempColorResource.r * 255, tempColorResource.g * 255, tempColorResource.b * 255));
+                    if (tempTileType == 0) continue;
+                    returnResources.Add(tempTileType);
+                    continue;
+                }
                 Color tempColor = tilemap.texture.GetPixel(x, y-1);
                 lineOfTypes.Add(GetTileType(new Color(tempColor.r*255, tempColor.g*255, tempColor.b*255)));
             }
@@ -73,12 +84,12 @@ public class TileLevelInterpreter : MonoBehaviour
         resources = returnResources;
     }
 
-    List<List<TileTypes>> GetGridTiles()
+    public List<List<TileTypes>> GetGridTiles()
     {
         return tilesGrid;
     }
 
-    List<TileTypes> GetResources()
+    public List<TileTypes> GetResources()
     {
         return resources;
     }
