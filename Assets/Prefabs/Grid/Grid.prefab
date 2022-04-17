@@ -45,3 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 20
   Height: 20
+  refreshDelay: 0
+  BGTile: {fileID: 8588929944359590317, guid: 00b6f616ac92d7141b059a4acf1af70d, type: 3}
+  gridSpacing: 1

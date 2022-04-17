@@ -56,7 +56,7 @@ public class GridCore : MonoBehaviour
                 GameObject Tile = Instantiate(BGTile, this.transform);
                 gridMap[y].Add(Tile);
 
-                Tile.GetComponent<TileNode>().Init(x, y, TileLevelInterpreter.TileTypes.None);
+                // Tile.GetComponent<TileNode>().Init(x, y, TileLevelInterpreter.TileTypes.None);
 
             }
         }

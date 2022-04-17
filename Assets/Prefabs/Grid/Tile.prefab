@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3964974805502583397}
   - component: {fileID: 7934772117924269292}
-  - component: {fileID: 3205877329099308921}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -72,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  m_Sprite: {fileID: 1502726920534950841, guid: d7602e25b770b5447a758b138282b7e3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83,21 +82,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3205877329099308921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8588929944359590317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54a7addd1d084b4aa79cd98ea2cbc4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xCoordinate: 0
-  yCoordinate: 0
-  Type: 0
-  Spacer: 0.33333334
-  grass: {fileID: 9086843753993150959, guid: 0458152639b045d458608b842ee3dcfb, type: 3}
-  PlaceHolder: {fileID: 2445643569753231608, guid: dda9886842affe74b8a8e381949f9f3e, type: 3}

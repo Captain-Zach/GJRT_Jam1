@@ -11,7 +11,7 @@ public class TileNode : MonoBehaviour
     [SerializeField] TileLevelInterpreter.TileTypes Type;
     public float Spacer = 1.0f;
 
-    [SerializeField] 
+    // [SerializeField] 
 
     
 
@@ -83,7 +83,7 @@ public class TileNode : MonoBehaviour
 
                 // Finally, we can put all this info together and move our ninth.
                 newNinth.transform.position = coordinates;
-                Debug.Log(MaskMap[y][x]);
+                Debug.Log(MaskMap[y]);
                 // refreshNinths();  // Shouldn't need to pass anything 
             }
         }
@@ -197,4 +197,7 @@ public class TileNode : MonoBehaviour
         // set all ninths to colorcode for city
     }
 
+    public int GetXCoord() { return xCoordinate; }
+    public int GetYCoord() { return yCoordinate; }
+    public TileLevelInterpreter.TileTypes GetTileTypes() { return Type; }
 }
