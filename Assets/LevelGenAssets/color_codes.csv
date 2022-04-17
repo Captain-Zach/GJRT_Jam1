@@ -1,0 +1,11 @@
+BasicBlock,105,106,106
+OneBlockWood,255,0,0
+TwoBlockWood,27,0,255
+ThreeBlockWood,0,215,255
+WaterStream,99,155,255
+Fork,217,87,99
+BeaversHouse,153,229,80
+Village,217,160,102
+VillagesHitbox,225,182,138
+City,164,121,78
+CitysHitbox,160,131,101
