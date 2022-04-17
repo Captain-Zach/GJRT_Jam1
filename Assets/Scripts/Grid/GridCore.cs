@@ -16,7 +16,7 @@ public class GridCore : MonoBehaviour
     // Toggle these for testing
     public float gridSpacing = 20;
 
-   public List<List<GameObject>> gridMap = new List<List<GameObject>>() {};
+   public List<List<GameObject>> gridMap = new List<List<GameObject>>();
 
    // Instead of listing lists of game objects, why don't we... Create a tile class
    // and keep a nested list of that? We could put anything in it that inherits from it. 
@@ -34,10 +34,10 @@ public class GridCore : MonoBehaviour
     void Start()
     {
         // Going to loop through
-        for(int y = 0; y< Height; y++)
+        for(int y = 0; y < Height; y++)
         {
             // This is a bit like building the train tracks as the train is running over it.
-            gridMap.Add(new List<GameObject>(){});
+            gridMap.Add(new List<GameObject>());
 
             for(int x = 0; x < Width; x++)
             {
@@ -49,8 +49,8 @@ public class GridCore : MonoBehaviour
             }
         }
 
-        Debug.Log(gridMap);
-        Debug.Log(gridMap[0][0]);
+        // Debug.Log(gridMap);
+        // Debug.Log(gridMap[0][0]);
     }
 
     // Update is called once per frame
@@ -71,7 +71,7 @@ public class GridCore : MonoBehaviour
             {
                 Tile.transform.position = new Vector2(xTracker * gridSpacing, yTracker * gridSpacing * -1);
                 xTracker++;
-                Debug.Log(xTracker + " " + yTracker);
+                // Debug.Log(xTracker + " " + yTracker);
             }
             xTracker = 0;
             yTracker++;

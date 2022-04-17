@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7934772117924269292}
   - component: {fileID: 3205877329099308921}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,4 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54a7addd1d084b4aa79cd98ea2cbc4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spacer: 0.33333334
   PlaceHolder: {fileID: 2445643569753231608, guid: dda9886842affe74b8a8e381949f9f3e, type: 3}

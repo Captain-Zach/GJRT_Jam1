@@ -214,9 +214,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
+      propertyPath: Width
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
       propertyPath: BGTile
       value: 
       objectReference: {fileID: 8588929944359590317, guid: 00b6f616ac92d7141b059a4acf1af70d, type: 3}
+    - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
+      propertyPath: Height
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
       propertyPath: PlaceHolder
       value: 
