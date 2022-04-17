@@ -518,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4468649442927234276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.68, y: -0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2973805235649110674}
@@ -548,6 +548,7 @@ MonoBehaviour:
   Width: 3
   Height: 3
   refreshDelay: 5
+  Loader: {fileID: 0}
   BGTile: {fileID: 8588929944359590317, guid: 00b6f616ac92d7141b059a4acf1af70d, type: 3}
   gridSpacing: 0.32
 --- !u!1 &7318847849704489003

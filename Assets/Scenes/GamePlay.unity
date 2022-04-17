@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
       propertyPath: BGTile
       value: 
-      objectReference: {fileID: 8588929944359590317, guid: 00b6f616ac92d7141b059a4acf1af70d, type: 3}
+      objectReference: {fileID: 4468649442927234276, guid: 7baef2d7006ba1b4fa7dd1b11575dff4, type: 3}
     - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
       propertyPath: Height
       value: 3
@@ -231,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 8588929944359590317, guid: 00b6f616ac92d7141b059a4acf1af70d, type: 3}
     - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
       propertyPath: gridSpacing
-      value: 0.32
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 7384693179419257594, guid: 17853f0611952bb43a5a4557f4dfa8f5, type: 3}
       propertyPath: refreshDelay
