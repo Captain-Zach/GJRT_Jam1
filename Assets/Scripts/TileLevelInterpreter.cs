@@ -20,9 +20,7 @@ public class TileLevelInterpreter : MonoBehaviour
 
     public void SetSprite(Sprite levelSprite)
     {
-        Debug.Log("Pré: " + levelTileMap.name);
         levelTileMap = levelSprite;
-        Debug.Log("Pós: " + levelTileMap.name);
     }
 
     // Start is called before the first frame update

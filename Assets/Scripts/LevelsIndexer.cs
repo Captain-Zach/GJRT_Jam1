@@ -20,7 +20,6 @@ public class LevelsIndexer : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("[i]OnEnable: " + activeLevelIndex);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
