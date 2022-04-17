@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class GridCore : MonoBehaviour
 {
+    private enum prospective {
+        None,
+        WaterStream
+    }
     [SerializeField] int Width;
     [SerializeField] int Height;
 
@@ -16,19 +20,25 @@ public class GridCore : MonoBehaviour
     // Toggle these for testing
     public float gridSpacing = 20;
 
+
    public List<List<GameObject>> gridMap = new List<List<GameObject>>();
 
+    
    // Instead of listing lists of game objects, why don't we... Create a tile class
    // and keep a nested list of that? We could put anything in it that inherits from it. 
 
     /* 
         Imagine something like this when given a map with a size of 4 by 4:
         [
-            [Sprite, Sprite, Sprite, Sprite],
-            [Sprite, Sprite, Sprite, Sprite],
-            [Sprite, Sprite, Sprite, Sprite],
-            [Sprite, Sprite, Sprite, Sprite]
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
         ]
+
+
     */
 
     void Start()
@@ -77,5 +87,7 @@ public class GridCore : MonoBehaviour
             yTracker++;
         }
     }
+
+    // Need a function to instantiate a new 
 
 }
