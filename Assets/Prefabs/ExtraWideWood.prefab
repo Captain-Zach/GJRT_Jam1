@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613876095737289451, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+    - target: {fileID: 613876095737289451, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 914343559013169719, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
       propertyPath: m_Name
       value: ExtraWideWood
@@ -58,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 962747164676585454, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287518791367264982, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aa94ea3c37778e49b773d0b8569ee77, type: 3}
