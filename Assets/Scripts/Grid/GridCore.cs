@@ -59,7 +59,7 @@ public class GridCore : MonoBehaviour
         List<List<TileLevelInterpreter.TileTypes>> gridlist = Terp.GetGridTiles();
         
         // Going to loop through
-        for(int y = 0; y < gridlist.Count; y++)
+        for(int y = 0; y < gridlist.Count - 1; y++)
         {
             // This is a bit like building the train tracks as the train is running over it.
             gridMap.Add(new List<TileNode.NodeTemplate>());
@@ -76,13 +76,13 @@ public class GridCore : MonoBehaviour
                         pickedPrefab = TileList[0];
                         break;
                     case TileLevelInterpreter.TileTypes.Village:
-                        pickedPrefab = TileList[1];
+                        pickedPrefab = TileList[7];
                         break;
                     case TileLevelInterpreter.TileTypes.Fork:
-                        pickedPrefab = TileList[2];
+                        pickedPrefab = TileList[9];
                         break;
                     case TileLevelInterpreter.TileTypes.BasicBlock:
-                        pickedPrefab = TileList[3];
+                        pickedPrefab = TileList[8];
                         break;
                     case TileLevelInterpreter.TileTypes.BeaversHouse:
                         pickedPrefab = TileList[5];
@@ -91,7 +91,7 @@ public class GridCore : MonoBehaviour
                         pickedPrefab = TileList[6];
                         break;
                     case TileLevelInterpreter.TileTypes.City:
-                        pickedPrefab = TileList[0];
+                        pickedPrefab = TileList[7];
                         break;
                     case TileLevelInterpreter.TileTypes.CitysHitbox:
                         pickedPrefab = TileList[0];
