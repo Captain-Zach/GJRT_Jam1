@@ -23,6 +23,8 @@ public class GridCore : MonoBehaviour
     // Toggle these for testing
     public float gridSpacing = 20;
 
+    [Serialize]
+
 
    public List<List<TileNode.NodeTemplate>> gridMap = new List<List<TileNode.NodeTemplate>>();
 
@@ -62,7 +64,7 @@ public class GridCore : MonoBehaviour
                 // Instantiate
                 // Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing * -1); // Yoooo what was I thinkin'?
                 GameObject Tile = Instantiate(BGTile, this.transform);
-                TileNode.NodeTemplate Node = new TileNode.NodeTemplate(0,false, TileNode.NodeTemplate.TileTypes.None, BGTile);
+                TileNode.NodeTemplate Node = new TileNode.NodeTemplate(0,false, TileNode.NodeTemplate.TileTypes.None, Tile);
                 // Node.TilePrefab = BGTile;
                 gridMap[y].Add(Node);
 

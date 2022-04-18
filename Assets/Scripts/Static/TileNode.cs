@@ -7,8 +7,8 @@ public class TileNode
     //This is a quick test class
     public class NodeTemplate
     {
-        [SerializeField] int WaterRange = 0;
-        [SerializeField] bool isWaterLogged = false;
+        private int WaterRange = 0;
+        private bool isWaterLogged = false;
         public TileTypes Type;
 
         public GameObject TilePrefab;
