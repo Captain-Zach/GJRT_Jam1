@@ -136,6 +136,7 @@ public class TileLevelInterpreter : MonoBehaviour
         Village = 8,
         VillagesHitbox = 9,
         City = 10,
-        CitysHitbox = 11
+        CitysHitbox = 11,
+        Water = 12
     }
 }

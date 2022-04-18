@@ -28,8 +28,6 @@ public class GridCore : MonoBehaviour
     // Toggle these for testing
     public float gridSpacing = 20;
 
-    // [Serialize]
-
 
    public List<List<TileNode.NodeTemplate>> gridMap = new List<List<TileNode.NodeTemplate>>();
 

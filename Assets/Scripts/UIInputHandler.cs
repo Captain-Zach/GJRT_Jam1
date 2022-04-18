@@ -8,6 +8,9 @@ using UnityEngine.EventSystems;
 public class UIInputHandler : MonoBehaviour
 {
     [SerializeField] GameObject Canvas;
+    [SerializeField] GameObject CanvasCredits;
+    [SerializeField] GameObject CanvasTips;
+    [SerializeField] GameObject BGimage;
     GraphicRaycaster raycaster;
 
     PointerEventData clickData;
@@ -43,6 +46,8 @@ public class UIInputHandler : MonoBehaviour
             GameObject uiElement = result.gameObject;
             if (uiElement.TryGetComponent(out LevelSceneLoader levelSceneLoader))
                 levelToLoad = levelSceneLoader.GetLevelIndex();
+            if (uiElement.TryGetComponent(out PanelHandler panelHandler))
+                panelHandler.ClosePanel();
         }
 
         if (levelToLoad != 0)
