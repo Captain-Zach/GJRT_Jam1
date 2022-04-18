@@ -9,6 +9,11 @@ public class GridCore : MonoBehaviour
         None,
         WaterStream
     }
+
+    [SerializeField] GameObject[] TileList = {
+        
+
+    };
     [SerializeField] int Width;
     [SerializeField] int Height;
 
@@ -23,7 +28,7 @@ public class GridCore : MonoBehaviour
     // Toggle these for testing
     public float gridSpacing = 20;
 
-    [Serialize]
+    // [Serialize]
 
 
    public List<List<TileNode.NodeTemplate>> gridMap = new List<List<TileNode.NodeTemplate>>();
@@ -48,22 +53,61 @@ public class GridCore : MonoBehaviour
 
     void Start()
     {
-        TileLevelInterpreter Terp = GetComponentInChildren(typeof(TileLevelInterpreter)) as TileLevelInterpreter;
+        TileLevelInterpreter Terp = Loader.GetComponentInChildren(typeof(TileLevelInterpreter)) as TileLevelInterpreter;
 
         // List<List<TileTypes>> = Terp.GetGridTiles();
-        TileNode.HelloTest();
+        // TileNode.HelloTest();
+
+        List<List<TileLevelInterpreter.TileTypes>> gridlist = Terp.GetGridTiles();
         
         // Going to loop through
-        for(int y = 0; y < Height; y++)
+        for(int y = 0; y < gridlist.Count; y++)
         {
             // This is a bit like building the train tracks as the train is running over it.
             gridMap.Add(new List<TileNode.NodeTemplate>());
 
-            for(int x = 0; x < Width; x++)
+            for(int x = 0; x < gridlist[0].Count; x++)
             {
+
+                // lets use a switch to pick which sprite goes in here.
+                Debug.Log(gridlist[y][x]);
+                GameObject pickedPrefab;
+                switch(gridlist[y][x])
+                {
+                    case TileLevelInterpreter.TileTypes.None:
+                        pickedPrefab = TileList[0];
+                        break;
+                    case TileLevelInterpreter.TileTypes.Village:
+                        pickedPrefab = TileList[1];
+                        break;
+                    case TileLevelInterpreter.TileTypes.Fork:
+                        pickedPrefab = TileList[2];
+                        break;
+                    case TileLevelInterpreter.TileTypes.BasicBlock:
+                        pickedPrefab = TileList[3];
+                        break;
+                    case TileLevelInterpreter.TileTypes.BeaversHouse:
+                        pickedPrefab = TileList[5];
+                        break;
+                    case TileLevelInterpreter.TileTypes.WaterStream:
+                        pickedPrefab = TileList[6];
+                        break;
+                    case TileLevelInterpreter.TileTypes.City:
+                        pickedPrefab = TileList[0];
+                        break;
+                    case TileLevelInterpreter.TileTypes.CitysHitbox:
+                        pickedPrefab = TileList[0];
+                        break;
+                    case TileLevelInterpreter.TileTypes.VillagesHitbox:
+                        pickedPrefab = TileList[0];
+                        break;
+                    default:
+                        pickedPrefab = TileList[0];
+                        break;
+                }
                 // Instantiate
                 // Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing * -1); // Yoooo what was I thinkin'?
-                GameObject Tile = Instantiate(BGTile, this.transform);
+                GameObject Tile = Instantiate(pickedPrefab, this.transform);
                 TileNode.NodeTemplate Node = new TileNode.NodeTemplate(0,false, TileNode.NodeTemplate.TileTypes.None, Tile);
                 // Node.TilePrefab = BGTile;
                 gridMap[y].Add(Node);
@@ -73,8 +117,8 @@ public class GridCore : MonoBehaviour
             }
         }
 
-        // Debug.Log(gridMap);
-        // Debug.Log(gridMap[0][0]);
+        // // Debug.Log(gridMap);
+        // // Debug.Log(gridMap[0][0]);
     }
 
     // Update is called once per frame
@@ -93,12 +137,12 @@ public class GridCore : MonoBehaviour
         {
             foreach (TileNode.NodeTemplate Tile in row)
             {
-                Debug.Log("DynaSpacing: x-" + xTracker+" y-"+ yTracker);
-                Debug.Log(Tile.TilePrefab.transform.position);
+                // // Debug.Log("DynaSpacing: x-" + xTracker+" y-"+ yTracker);
+                // // Debug.Log(Tile.TilePrefab.transform.position);
                 
                 Tile.TilePrefab.transform.position = new Vector3(xTracker * gridSpacing, yTracker * gridSpacing * -1, 0);
                 xTracker++;
-                // Debug.Log(xTracker + " " + yTracker);
+                // // // Debug.Log(xTracker + " " + yTracker);
             }
             xTracker = 0;
             yTracker++;
