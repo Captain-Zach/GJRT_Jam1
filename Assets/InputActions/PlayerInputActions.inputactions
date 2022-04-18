@@ -51,12 +51,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeWoodSize",
+                    "name": "NextWood",
                     "type": "Button",
-                    "id": "5c1d5418-0fae-4368-b443-867789be81de",
+                    "id": "c6336479-7bfa-4efa-aa7c-adb3825e4a4f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -162,12 +162,12 @@
                 },
                 {
                     "name": "",
-                    "id": "1d04e108-1e9e-4aa1-aff0-034adb0d63df",
+                    "id": "86b80bc3-3a1a-41c2-9a73-4a983c7456b3",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeWoodSize",
+                    "action": "NextWood",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

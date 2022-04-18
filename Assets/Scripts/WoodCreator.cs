@@ -13,14 +13,28 @@ public class WoodCreator : MonoBehaviour
     {
         if (context.performed)
         {
+            LevelHandler levelHandler = Object.FindObjectOfType<LevelHandler>();
             Vector2 mousePosition = MainCamera.GetComponent<Camera>().ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            //Vector3 diffMousePlayer = new Vector3(mousePosition.x, mousePosition.y, 0) - gameObject.transform.position;
-            //Vector2 spawningDirection = GetFacingDirection(diffMousePlayer);
-            //Vector3 spawningPosition = new Vector3(spawningDirection.x + transform.position.x, spawningDirection.y + transform.position.y, 0);
             Vector2 roundedMousePosition = SnapVector2(mousePosition);
-            GameObject createdWood = Instantiate(WoodPrefab, roundedMousePosition, transform.rotation);
+            Vector2 correctedSpawnPosition;
+            Collider2D[] colliders;
+            GameObject createdWood;
 
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(roundedMousePosition, new Vector2(0.9f, 0.9f), 0f);
+            GameObject woodPrefab = levelHandler.GetWood();
+
+            if (levelHandler.GetTotalResources() == 0) return;
+
+            if (woodPrefab.transform.localScale.x % 2 == 0)
+            {
+                correctedSpawnPosition = new Vector2(roundedMousePosition.x - 0.5f, roundedMousePosition.y);
+                createdWood = Instantiate(woodPrefab, correctedSpawnPosition, transform.rotation);
+                colliders = Physics2D.OverlapBoxAll(roundedMousePosition, new Vector2(0.9f * woodPrefab.transform.localScale.x, 0.9f), 0f);
+            } else
+            {
+                correctedSpawnPosition = roundedMousePosition;
+                createdWood = Instantiate(woodPrefab, correctedSpawnPosition, transform.rotation);
+                colliders = Physics2D.OverlapBoxAll(roundedMousePosition, new Vector2(0.9f, 0.9f), 0f);
+            }
 
             foreach (Collider2D collider in colliders)
             {
@@ -33,17 +47,32 @@ public class WoodCreator : MonoBehaviour
 
                 if (collider.GetComponentInParent<WaterSpawnBehaviour>() != null)
                 {
-                    GameObject waterStreamGenerator = collider.GetComponentInParent<WaterSpawnBehaviour>().gameObject;
-                    Instantiate(StreamPrefab, waterStreamGenerator.transform.position, waterStreamGenerator.transform.rotation);
-                    Destroy(waterStreamGenerator);
+                    WaterSpawnBehaviour[] allWaterStreamGens = Object.FindObjectsOfType<WaterSpawnBehaviour>();
+                    foreach (WaterSpawnBehaviour waterSpawn in allWaterStreamGens)
+                    {
+                        Transform transformCopy = waterSpawn.transform;
+                        Destroy(waterSpawn.gameObject);
+                        if (!waterSpawn.name.Contains("Clone"))
+                        {
+                            GameObject newMainWaterStream = Instantiate(StreamPrefab, transformCopy.position, transformCopy.rotation);
+                            newMainWaterStream.name = "WaterSpawner";
+                        }
+                    }
                 }
             }
+
+            levelHandler.UseWood();
         }
     }
 
-    public void SelectWoodSize(InputAction.CallbackContext context)
+    public void NextWoodSize(InputAction.CallbackContext context)
     {
-
+        if (context.performed)
+        {
+            LevelHandler levelHandler = Object.FindObjectOfType<LevelHandler>();
+            levelHandler.GoToNextWood();
+            Debug.Log(levelHandler.GetWood().name);
+        }
     }
 
     public Vector2 SnapVector2(Vector3 vector3, float gridSize = 1.0f)

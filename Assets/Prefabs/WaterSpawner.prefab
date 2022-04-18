@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaterBlockPrefab: {fileID: 7527956436049539241, guid: 346bad9c9296cc748b06c81440b46f52, type: 3}
   SelfPrefab: {fileID: 4471942337481033456}
+  maxRange: 4
