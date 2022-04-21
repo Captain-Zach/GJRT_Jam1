@@ -23,5 +23,7 @@ public class CamTroller : MonoBehaviour
             this.transform.position = new Vector3 (this.transform.position.x, 0, -10);
         }
         this.transform.position = new Vector3(this.transform.position.x + Input.GetAxis("Horizontal") * speed, this.transform.position.y + Input.GetAxis("Vertical") * speed, -10);
+
+        
     }
 }
