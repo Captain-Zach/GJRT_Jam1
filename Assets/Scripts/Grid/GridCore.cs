@@ -106,17 +106,34 @@ public class GridCore : MonoBehaviour
                 // Instantiate
                 // Vector2 TestBoi = new Vector2(x * gridSpacing, y * gridSpacing * -1); // Yoooo what was I thinkin'?
                 GameObject Tile = Instantiate(pickedPrefab, this.transform);
+                // Need to add coordinates
+
+
                 TileNode.NodeTemplate Node = new TileNode.NodeTemplate(0,false, TileNode.NodeTemplate.TileTypes.None, Tile);
                 // Node.TilePrefab = BGTile;
                 gridMap[y].Add(Node);
 
                 // Tile.GetComponent<TileNode>().Init(x, y, TileLevelInterpreter.TileTypes.None);
 
+                // Tile.GetComponent<Clickable>(  ).yCoord = y;
+                
             }
         }
 
         // // Debug.Log(gridMap);
         // // Debug.Log(gridMap[0][0]);
+    }
+
+    void Awake() // Adding the coordinates to the tiles after start... Aaaaand it's not working.
+    {
+        for(int y = 0; y < gridMap.Count; y++)
+        {
+            for(int x = 0; x < gridMap[0].Count; x++)
+            {
+                Debug.Log("AWAKE function firing - X:" + x  + "  Y:" + y);
+                gridMap[y][x].TilePrefab.GetComponent<Clickable>().setCoords(x,y);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -140,11 +157,23 @@ public class GridCore : MonoBehaviour
                 
                 Tile.TilePrefab.transform.position = new Vector3(xTracker * gridSpacing, yTracker * gridSpacing * -1, 0);
                 xTracker++;
-                // // // Debug.Log(xTracker + " " + yTracker);
+                // Debug.Log(xTracker + " " + yTracker);
             }
             xTracker = 0;
             yTracker++;
         }
+    }
+
+    // Need a click handler
+    public void nodeClickEvent(int xCoord, int yCoord)
+    {
+        // passes coordinates of clicked node to GRID, grabs prefab
+        TileNode.NodeTemplate targetNode = gridMap[yCoord][xCoord]; 
+        // GameObject targetNode = gridMap[yCoord][xCoord].TilePrefab;
+
+        // make decisions based on what's already in the square!
+        Debug.Log("You've click on a "+ targetNode.Type);
+        Debug.Log("At position " + targetNode.TilePrefab.GetComponent<Clickable>().xCoord +" " + targetNode.TilePrefab.GetComponent<Clickable>().yCoord);
     }
 
     // Need a function to instantiate new Tiles
